@@ -1,0 +1,13 @@
+# Doxygen configuration file scaffold for C++ documentation
+# To generate: doxygen Doxyfile
+
+PROJECT_NAME           = "Pomodoro TUI"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = main.cpp
+RECURSIVE              = NO
+GENERATE_LATEX         = NO
+GENERATE_HTML          = YES
+EXTRACT_ALL            = YES
+QUIET                  = YES
+
+# Add more configuration as needed for your project

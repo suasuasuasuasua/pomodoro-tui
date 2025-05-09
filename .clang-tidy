@@ -1,0 +1,5 @@
+Checks: '*'
+WarningsAsErrors: '*'
+ExtraArgs: ['-std=c++23']
+HeaderFilterRegex: '.*'
+FormatStyle: file
