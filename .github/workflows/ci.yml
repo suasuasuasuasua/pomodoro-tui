@@ -20,4 +20,4 @@ jobs:
             - name: Run format check
               run: nix fmt
             - name: Build
-              run: nom build
+              run: nix develop --command nom build
