@@ -1,10 +1,10 @@
 Checks: >
-  bugprone-*,
-  clang-analyzer-*,
-  cppcoreguidelines-*,
-  modernize-*,
-  performance-*,
-  readability-*,
+    bugprone-*,
+    clang-analyzer-*,
+    cppcoreguidelines-*,
+    modernize-*,
+    performance-*,
+    readability-*,
 WarningsAsErrors: ''
 HeaderFilterRegex: '.*'
 FormatStyle: file
