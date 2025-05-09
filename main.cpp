@@ -217,8 +217,9 @@ auto handle_session_transition(bool& on_break, SessionTime& current,
 // Extracted event loop to reduce main() complexity
 void pomodoro_event_loop(
     const SessionTime& pomodoro,
-    const SessionTime& brk)  // NOLINT(readability-function-cognitive-complexity)
-                             // // TUI event loop is inherently complex
+    const SessionTime&
+        brk)  // NOLINT(readability-function-cognitive-complexity)
+              // TUI event loop is inherently complex
 {
   SessionTime current = pomodoro;
   TimerTickState tick_state{
