@@ -52,7 +52,7 @@ To run directly with Nix:
 nix run [-- --debug]
 ```
 
-- Use the `--debug` flag to enable short (10s/5s) study/break options for testing.
+-   Use the `--debug` flag to enable short (10s/5s) study/break options for testing.
 
 ### 3. Manual Build with CMake
 

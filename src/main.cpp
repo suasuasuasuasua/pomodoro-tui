@@ -1,7 +1,9 @@
-#include "pomodoro.h"
 #include <ncurses.h>
+
 #include <string>
 #include <vector>
+
+#include "pomodoro.h"
 
 int main(int argc, char* argv[]) {
   initscr();
@@ -13,7 +15,8 @@ int main(int argc, char* argv[]) {
   // Check for debug flag
   bool debug_mode = false;
   for (int arg_index = 1; arg_index < argc; ++arg_index) {
-    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-pointer-arithmetic) // Standard C++ argv usage
+    // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-pointer-arithmetic) //
+    // Standard C++ argv usage
     if (std::string(argv[arg_index]) == "--debug") {
       debug_mode = true;
       break;
@@ -21,12 +24,10 @@ int main(int argc, char* argv[]) {
   }
 
   // Menu options for study and break durations using struct-based vectors
-  std::vector<TimerOption> study_options = {
-      {"25:00 (Short Study)", 25, 0},
-      {"50:00 (Long Study)", 50, 0}};
-  std::vector<TimerOption> break_options = {
-      {"5:00 (Short Break)", 5, 0},
-      {"10:00 (Long Break)", 10, 0}};
+  std::vector<TimerOption> study_options = {{"25:00 (Short Study)", 25, 0},
+                                            {"50:00 (Long Study)", 50, 0}};
+  std::vector<TimerOption> break_options = {{"5:00 (Short Break)", 5, 0},
+                                            {"10:00 (Long Break)", 10, 0}};
   if (debug_mode) {
     study_options.push_back({"0:10 (Debug Study)", 0, 10});
     break_options.push_back({"0:05 (Debug Break)", 0, 5});

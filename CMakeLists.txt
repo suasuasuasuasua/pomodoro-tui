@@ -9,10 +9,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Curses REQUIRED)
 
-add_executable(pomodoro
-    src/main.cpp
-    src/pomodoro.cpp
-)
+add_executable(pomodoro src/main.cpp src/pomodoro.cpp)
 
 target_include_directories(pomodoro PRIVATE src)
 
