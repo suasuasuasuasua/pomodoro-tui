@@ -32,6 +32,7 @@ nix-run *ARGS:
     nix run . -- {{ ARGS }}
 
 # Generate documentation with Doxygen
+
 # Usage: just docs
 docs:
     doxygen Doxyfile
