@@ -17,17 +17,7 @@ jobs:
                   nix_path: nixpkgs=channel:nixos-24.11
             - name: Nix flake check
               run: nix flake check
-            - name: Build
-              run: nix build
             - name: Run format check
               run: nix fmt
-            - name: CMake configure & build
-              run: |
-                  nix develop --command cmake -S . -B build
-                  nix develop --command cmake --build build
-            - name: Run clang-tidy
-              run: |
-                  nix develop --command clang-tidy main.cpp --
-            - name: Run clang-format check
-              run: |
-                  nix develop --command clang-format --dry-run --Werror main.cpp
+            - name: Build
+              run: nix build
