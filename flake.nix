@@ -54,9 +54,9 @@
           src = ./.; # Use the current directory as the source
 
           buildInputs = with pkgs; [
-            pkgs.gcc
-            pkgs.ncurses
-            pkgs.cmake
+            gcc
+            ncurses
+            cmake
           ]; # Dependencies
 
           # Build phase: configure and build with CMake, using all CPU cores

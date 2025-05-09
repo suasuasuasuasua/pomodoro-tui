@@ -1,18 +1,21 @@
-cmake_minimum_required(VERSION 3.20)
-project(pomodoro_tui LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.25)
+project(pomodoro-tui LANGUAGES CXX)
 
-# Require C++23
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Enable strict warnings and pedantic mode
-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic -Werror)
-endif()
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Curses REQUIRED)
 
-add_executable(pomodoro main.cpp)
+add_executable(pomodoro
+    src/main.cpp
+    src/pomodoro.cpp
+)
+
+target_include_directories(pomodoro PRIVATE src)
+
+target_compile_options(pomodoro PRIVATE -Wall -Wextra -Wpedantic -Werror)
+
 target_link_libraries(pomodoro PRIVATE ${CURSES_LIBRARIES})
-target_include_directories(pomodoro PRIVATE ${CURSES_INCLUDE_DIR})
