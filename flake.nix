@@ -47,6 +47,7 @@
               gcc
               just
               ncurses
+              nix-output-monitor
               nodePackages.prettier
               treefmt
             ]

@@ -21,11 +21,11 @@ clean:
 
 # Enter the Nix development shell
 dev:
-    nix develop
+    nom develop
 
 # Build with Nix flake
 nix-build:
-    nix build
+    nom build
 
 # Run with Nix flake (pass extra args after --)
 nix-run *ARGS:
