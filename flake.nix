@@ -6,6 +6,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11"; # Pin all package versions here
     flake-utils.url = "github:numtide/flake-utils";
+    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
@@ -15,6 +16,7 @@
       nixpkgs,
       flake-utils,
       treefmt-nix,
+      pre-commit-hooks,
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
@@ -43,7 +45,7 @@
             ncurses
             nodePackages.prettier
             treefmt
-          ];
+          ]++ self.checks.${system}.pre-commit-check.enabledPackages;
         };
 
         # The actual package derivation (for nix build)
@@ -95,6 +97,12 @@
         # for `nix flake check`
         checks = {
           formatting = treefmtEval.config.build.check self;
+           pre-commit-check = pre-commit-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              treefmt.enable = true;
+            };
+          };
         };
       }
     );
