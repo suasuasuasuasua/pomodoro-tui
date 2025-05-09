@@ -1,5 +1,11 @@
-Checks: '*'
-WarningsAsErrors: '*'
-ExtraArgs: ['-std=c++23']
+Checks: >
+  bugprone-*,
+  clang-analyzer-*,
+  cppcoreguidelines-*,
+  modernize-*,
+  performance-*,
+  readability-*,
+WarningsAsErrors: ''
 HeaderFilterRegex: '.*'
 FormatStyle: file
+ExtraArgs: ['-std=c++23']

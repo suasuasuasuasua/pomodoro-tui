@@ -4,4 +4,4 @@ ColumnLimit: 80
 AllowShortFunctionsOnASingleLine: Inline
 DerivePointerAlignment: false
 PointerAlignment: Left
-Standard: LS_Auto
+Standard: Auto
