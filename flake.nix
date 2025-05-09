@@ -36,16 +36,21 @@
       {
         # Development shell for interactive work (nix develop)
         devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            clang-tools_18 # Provides clang-format and clang-tidy (latest stable)
-            cmake
-            doxygen
-            gcc
-            just
-            ncurses
-            nodePackages.prettier
-            treefmt
-          ]++ self.checks.${system}.pre-commit-check.enabledPackages;
+          inherit (self.checks.${system}.pre-commit-check) shellHook;
+
+          buildInputs =
+            with pkgs;
+            [
+              clang-tools_18 # Provides clang-format and clang-tidy (latest stable)
+              cmake
+              doxygen
+              gcc
+              just
+              ncurses
+              nodePackages.prettier
+              treefmt
+            ]
+            ++ self.checks.${system}.pre-commit-check.enabledPackages;
         };
 
         # The actual package derivation (for nix build)
@@ -97,10 +102,14 @@
         # for `nix flake check`
         checks = {
           formatting = treefmtEval.config.build.check self;
-           pre-commit-check = pre-commit-hooks.lib.${system}.run {
+          pre-commit-check = pre-commit-hooks.lib.${system}.run {
             src = ./.;
             hooks = {
-              treefmt.enable = true;
+              nixfmt-rfc-style.enable = true;
+              statix.enable = true;
+              clang-format.enable = true;
+              cmake-format.enable = true;
+              prettier.enable = true;
             };
           };
         };

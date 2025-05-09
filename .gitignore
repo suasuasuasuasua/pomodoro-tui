@@ -34,3 +34,5 @@ justfile.bak
 
 # docs
 docs
+
+.pre-commit-config.yaml
